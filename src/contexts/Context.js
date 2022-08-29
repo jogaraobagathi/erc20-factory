@@ -1,23 +1,12 @@
 import React, { useState, useContext, createContext, useEffect } from "react";
 import { ethers } from "ethers";
 import { useFactory } from "../hooks/useFactory";
-const Context = createContext();
+export const Context = createContext();
 
-export const useTokens = () => {
-  const { tokens, addToken } = useContext(Context);
-  return { tokens, addToken };
-};
-
-export const useAccountsData = () => {
-  const { accounts, userData } = useContext(Context);
-  return { accounts, userData };
-};
 export function ContextProvider({ children }) {
   const [tokens, setTokens] = useState([]); //{name:"",symbol:"",_address:""}
   const contract = useFactory();
-
   const [accounts, setAccounts] = useState([]);
-
   const [userData, setUserData] = useState({}); //{token:{account:{mint:boolean,balance:0}}}
 
   useEffect(() => {

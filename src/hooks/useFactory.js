@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import factoryjson from "../artifacts/contracts/Factory.sol/Factory.json";
-const factoryAddress = "0x5Bd070C711fD3774271c6F82dc3CECcd9bAB8056";
+const factoryAddress = "0xE199C270bb0EC78a4c108f58b71649Bb16e2264B";
 export function useFactory(address = factoryAddress) {
   const [contract, setContract] = useState(null);
   useEffect(() => {

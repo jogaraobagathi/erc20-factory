@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useFactory } from "../hooks/useFactory";
-import { useTokens, useAccountsData } from "../contexts/Context";
-
+import { useTokens } from "../hooks/useTokens";
+import { useAccountsData } from "../hooks/useAccountsData";
 function TokenCreation() {
-  const contract = useFactory();
   const { addToken, tokens } = useTokens();
   const { userData } = useAccountsData();
 
