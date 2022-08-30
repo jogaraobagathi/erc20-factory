@@ -16,9 +16,7 @@ export function ContextProvider({ children }) {
         "http://localhost:7545"
       );
       var accountsArray = await provider.listAccounts();
-      accountsArray = accountsArray.map((address) =>
-        address.toString().toLowerCase()
-      );
+
       setAccounts(accountsArray);
     };
     getAccounts();
@@ -28,7 +26,7 @@ export function ContextProvider({ children }) {
     const obj = {};
     tokens.forEach((token) => {
       obj[token._address] = {};
-      accounts.forEach((account) => {
+      accounts.forEach(async (account) => {
         obj[token._address][account] = {
           balance: 0,
           mint: false,
@@ -74,6 +72,7 @@ export function ContextProvider({ children }) {
       console.log(error);
     }
   };
+
   const data = { tokens, addToken, accounts, userData, tokenContracts };
   return <Context.Provider value={data}>{children}</Context.Provider>;
 }
