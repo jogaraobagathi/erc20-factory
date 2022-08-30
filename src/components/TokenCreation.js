@@ -15,14 +15,14 @@ function TokenCreation() {
     addToken(name, value);
   };
 
-  const printTokens = () => {
-    console.log("tokens", tokens);
-    console.log("userdata is ", userData);
-  };
+  // const printTokens = () => {
+  //   console.log("tokens", tokens);
+  //   console.log("userdata is ", userData);
+  // };
 
   return (
     <div>
-      TokenCreation
+      <h3>TokenCreation</h3>
       <div>
         <form onSubmit={handleSubmit}>
           <input id="name" placeholder="name" />
@@ -30,7 +30,7 @@ function TokenCreation() {
           <button type="submit">create</button>
         </form>
 
-        <button onClick={printTokens}>click</button>
+        {/* <button onClick={printTokens}>click</button> */}
       </div>
     </div>
   );

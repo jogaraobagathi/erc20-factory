@@ -4,7 +4,7 @@ import { useUser } from "../hooks/useUser";
 
 function Mint({ currentToken }) {
   const { currentUser } = useUser();
-  const { tokenContracts, tokens } = useTokens();
+  const { tokenContracts, tokens, initialiseUserData } = useTokens();
 
   const handleMint = async (e) => {
     e.preventDefault();
@@ -13,9 +13,16 @@ function Mint({ currentToken }) {
     console.log(tokenContracts[currentToken]);
     const currentContract = tokenContracts[currentToken];
     const tx = await currentContract.mint(mintValue * 100);
-    const sB = await currentContract.totalSupply();
-    const sp = sB.toNumber();
-    console.log("sp is ", sp);
+    const rcpt = await tx.wait();
+    initialiseUserData();
+
+    // setTimeout(() => {
+    //   updateUserData(currentToken, currentUser);
+    // }, 10000);
+
+    // const sB = await currentContract.totalSupply();
+    // const sp = sB.toNumber();
+    // console.log("sp is ", sp);
   };
   return (
     <div>

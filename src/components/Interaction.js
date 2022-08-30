@@ -42,14 +42,17 @@ export function Interaction() {
 
 function DropDown({ handleChange, tokens }) {
   return (
-    <select onChange={handleChange}>
-      {tokens.map((token) => {
-        return (
-          <option value={token._address} key={token._address}>
-            {token.name}
-          </option>
-        );
-      })}
-    </select>
+    <>
+      <h3>Select Token :</h3>{" "}
+      <select onChange={handleChange}>
+        {tokens.map((token) => {
+          return (
+            <option value={token._address} key={token._address}>
+              {token.name}
+            </option>
+          );
+        })}
+      </select>
+    </>
   );
 }
