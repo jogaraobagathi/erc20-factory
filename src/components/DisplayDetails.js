@@ -40,7 +40,7 @@ function DisplayDetails({ currentToken }) {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ maxWidth: 850 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>user</TableCell>

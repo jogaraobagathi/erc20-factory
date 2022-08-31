@@ -11,7 +11,8 @@ function Transfer({ currentToken }) {
     const amount = e.target.amount.value;
     const currentContract = tokenContracts[currentToken];
     const tx = await currentContract.transfer(receiver, amount * 100);
-    const rcpt = tx.wait();
+    const rcpt = await tx.wait();
+    console.log("rcpt is ", rcpt);
     initialiseUserData();
     // setTimeout(() => {
     //   updateUserData(currentToken, currentUser);
