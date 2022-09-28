@@ -16,7 +16,6 @@ function DisplayDetails({ currentToken }) {
   const { currentUser } = useUser();
   const { accounts } = useAccountsData();
   const { userData, tokenContracts, initialiseUserData } = useTokens();
-
   useEffect(() => {
     accounts.forEach((account) => {
       if (account.toString().toLowerCase() === currentUser) {
@@ -75,7 +74,12 @@ function DisplayDetails({ currentToken }) {
               </TableCell>
               <TableCell align="right">
                 <button
-                  disabled={!canMint || currentUserWithCaps === account}
+                  disabled={
+                    userData?.[currentToken]?.[currentUserWithCaps]?.mint ===
+                      "undefined" ||
+                    currentUserWithCaps === account ||
+                    !userData?.[currentToken]?.[currentUserWithCaps]?.mint
+                  }
                   onClick={() => handleToggle(account)}
                 >
                   toggle
